@@ -1,6 +1,6 @@
 // X & O
-let width = 3;
 let height = 3;
+let width = 3;
 let filltowin = 3;
 let players = 2;
 
@@ -11,9 +11,9 @@ let winnerColor;
 let currentTurn = 0;
 
 function setupBoard() {
-    for (let i = 0; i < width; i++) {
+    for (let i = 0; i < height; i++) {
         board.push([]);
-        for (let j = 0; j < height; j++) {
+        for (let j = 0; j < width; j++) {
             newCell(i, j, j == 0);
             board[i].push('');
         }
@@ -74,8 +74,8 @@ function checkWinner() {
 
 function findWinner() {
     let winner;
-    for (let i = 0; i < width; i++) {
-        for (let j = 0; j < height; j++) {
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
             winner = getWinner(i, j);
             if (winner !== undefined) {
                 return winner;
@@ -91,7 +91,7 @@ function getWinner(row, column) {
 
     // horizontal
     let ticks = 0;
-    for (let i = row; i < width; i++) {
+    for (let i = row; i < height; i++) {
         if (board[i][column] === player) {
             ticks++;
         } else {
@@ -103,7 +103,7 @@ function getWinner(row, column) {
 
     // vertical
     ticks = 0;
-    for (let i = column; i < height; i++) {
+    for (let i = column; i < width; i++) {
         if (board[row][i] === player) {
             ticks++;
         } else {
@@ -117,7 +117,7 @@ function getWinner(row, column) {
     ticks = 0;
     let row2 = row;
     let column2 = column;
-    while (row2 < width && column2 < height) {
+    while (row2 < height && column2 < width) {
         if (board[row2][column2] === player) {
             ticks++;
         } else {
@@ -131,7 +131,7 @@ function getWinner(row, column) {
 
     // diagonal 2
     ticks = 0;
-    while (row < width && column >= 0) {
+    while (row < height && column >= 0) {
         if (board[row][column] === player) {
             ticks++;
         } else {
@@ -160,8 +160,8 @@ function start() {
     let playerEl = document.getElementById('players');
     let filltowinEl = document.getElementById('filltowin');
 
-    width = widthEl.value || width;
     height = heightEl.value || height;
+    width = widthEl.value || width;
     players = playerEl.value || players;
     filltowin = filltowinEl.value || filltowin;
 
