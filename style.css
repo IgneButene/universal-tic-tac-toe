@@ -1,0 +1,38 @@
+label {
+    display: inline-block;
+    width: 90px;
+    padding: 2px;
+  }
+  
+  input {
+    width: 50px;
+    height: 20px;
+    margin: 2px;
+  }
+  
+  button {
+    color: white;
+    background-color: green;
+    font-weight: bold;
+    
+    margin-bottom: 10px;
+  }
+  
+  .cell {
+    width: 50px;
+    height: 50px;
+    
+    float: left;
+    
+    border: 1px black solid;
+    text-align: center;
+    
+    vertical-align: middle;
+  
+    background-color: yellow;
+  }
+  
+  .winner {
+    opacity: 0.8;
+    background: repeating-linear-gradient( 45deg, #444cf7, #444cf7 5px, #e5e5f7 5px, #e5e5f7 25px );
+  }
